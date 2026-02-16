@@ -1,0 +1,16 @@
+{
+  "name": "passkey-login",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "test-email": "node test-email.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "@simplewebauthn/server": "^13.2.2",
+    "@simplewebauthn/browser": "^13.2.2",
+    "nodemailer": "^6.9.16",
+    "dotenv": "^16.4.7"
+  }
+}
