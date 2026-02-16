@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passkey Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Passkey Login</h1>
+      <div id="loginForm">
+        <input type="text" id="username" placeholder="Username" autocomplete="username webauthn">
+        <button onclick="login()">Login</button>
+        <button onclick="showRegisterModal()" class="secondary">Register New Account</button>
+      </div>
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRegisterModal()">&times;</span>
+      <h2>Register New Account</h2>
+      
+      <div id="registrationStep1">
+        <input type="text" id="regUsername" placeholder="Username" required>
+        <input type="email" id="regEmail" placeholder="Email Address" required>
+        <input type="tel" id="regMobile" placeholder="Mobile Number" required>
+        
+        <div class="terms">
+          <label class="checkbox-label">
+            <input type="checkbox" id="agreeTerms">
+            <span>I agree to the <a href="#" onclick="showTerms(); return false;">Terms and Conditions</a></span>
+          </label>
+        </div>
+        
+        <button onclick="requestVerification()">Proceed</button>
+      </div>
+
+      <div id="registrationStep2" style="display: none;">
+        <p>A 6-digit verification code has been sent to your email.</p>
+        <input type="text" id="verificationCode" placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}">
+        <button onclick="verifyCode()">Verify & Register Passkey</button>
+        <button onclick="backToStep1()" class="secondary">Back</button>
+      </div>
+
+      <div id="registrationMessage"></div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeTermsModal()">&times;</span>
+      <h2>Terms and Conditions</h2>
+      <div class="terms-content">
+        <h3>1. Acceptance of Terms</h3>
+        <p>By using this service, you agree to be bound by these Terms and Conditions.</p>
+        
+        <h3>2. User Account</h3>
+        <p>You are responsible for maintaining the confidentiality of your account and passkey.</p>
+        
+        <h3>3. Privacy</h3>
+        <p>We collect and store your email and mobile number for account verification and security purposes.</p>
+        
+        <h3>4. Passkey Security</h3>
+        <p>Your passkey is stored securely on your device. We do not have access to your biometric data.</p>
+        
+        <h3>5. Acceptable Use</h3>
+        <p>You agree not to use this service for any unlawful or prohibited activities.</p>
+        
+        <h3>6. Termination</h3>
+        <p>We reserve the right to terminate accounts that violate these terms.</p>
+      </div>
+      <button onclick="closeTermsModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
