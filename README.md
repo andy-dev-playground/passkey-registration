@@ -66,7 +66,7 @@ A modern, secure authentication system using WebAuthn passkeys with email verifi
 
 5. **Open in browser**
    ```
-   http://localhost:3000
+   http://localhost:3100
    ```
 
 ## 📖 Usage
@@ -205,7 +205,7 @@ To enable production mode, configure valid email credentials in `.env`.
 ### Server Configuration
 
 Edit `server.js` to customize:
-- `PORT` - Server port (default: 3000)
+- `PORT` - Server port (default: 3100)
 - `rpName` - Relying Party name displayed during registration
 - `rpID` - Domain name (use 'localhost' for local development)
 - `origin` - Full origin URL
